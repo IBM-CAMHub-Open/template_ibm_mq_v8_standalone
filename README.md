@@ -1,0 +1,1 @@
+# template_ibm_mq_v8_standalone
