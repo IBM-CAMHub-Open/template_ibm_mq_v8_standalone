@@ -1,1 +1,1 @@
-# template_ibm_mq_v8_standalone
+Copyright IBM Corp. 2017, 2017
