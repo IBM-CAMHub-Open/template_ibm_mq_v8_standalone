@@ -103,6 +103,17 @@
       "group_name": "virtualmachine"
     },
     {
+      "name": "MQV8Node01_domain",
+      "type": "string",
+      "description": "Domain Name of virtual machine",
+      "hidden": false,
+      "label": "Domain Name - MQV8Node01",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "virtualmachine"
+    },
+    {
       "name": "MQV8Node01_wmq_advanced",
       "type": "string",
       "description": "Install IBM MQ Advanced components: File Transfer, IBM MQ Telemetry, and Advanced Message Security.",

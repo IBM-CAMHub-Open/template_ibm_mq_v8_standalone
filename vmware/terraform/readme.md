@@ -1,4 +1,4 @@
-# Template - IBM MQ Series V8 on a single VM
+# Template - IBM MQ V8 on a single virtual machine
 Template Version - 1.0
 
 ## Description
@@ -37,8 +37,8 @@ IBM MQ Series V8.0<br>
 ### Usage and Special Notes
 
 1. The user is responsible for obtaining appropriate software licenses and downloads prior to template deployment.<br>
-2. IBM Knowledge Center for IBM MQ Series 8.0 - https://www.ibm.com/support/knowledgecenter/SSFKSJ_8.0.0/com.ibm.mq.helphome.v80.doc/WelcomePagev8r0.htm<br>
-3. IBM Support Portal - https://www.ibm.com/support/home/<br>
+2. IBM Knowledge Center for IBM MQ 8.0 - <a href=\"https://www.ibm.com/support/knowledgecenter/SSFKSJ_8.0.0/com.ibm.mq.helphome.v80.doc/WelcomePagev8r0.htm\" target=\"_blank\">https://www.ibm.com/support/knowledgecenter/SSFKSJ_8.0.0/com.ibm.mq.helphome.v80.doc/WelcomePagev8r0.htm</a><br>
+3. IBM Support Portal - <a href=\"https://www.ibm.com/support/home/\" target=\"_blank\">https://www.ibm.com/support/home/</a><br>
 <br>
 
 
