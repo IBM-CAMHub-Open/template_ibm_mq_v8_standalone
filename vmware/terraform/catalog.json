@@ -34,7 +34,7 @@
     "description": "1.0<br>"},
 {
     "title": "Operating Systems Supported",
-    "description": "Red Hat Enterprise Linux 7<br>Red Hat Enterprise Linux 6 (MQ8 Only)<br>Ubuntu 16.04<br>Ubuntu 14.0.4<br>"},
+    "description": "Red Hat Enterprise Linux 7<br>Red Hat Enterprise Linux 6<br>Ubuntu 14.04<br>"},
 {
     "title": "Topology",
     "description": "1 virtual machine:<br> IBM MQ Instance instance<br>"},
@@ -43,7 +43,7 @@
     "description": "IBM MQ Series V8.0<br>"},
 {
     "title": "Default Virtual Machine Settings",
-    "description": " vCPU = 1, Memory = 2GB, Storage = 25GB<br>"},
+    "description": " vCPU 1, Memory (GB) 2<br>"},
 {
     "title": "Usage and Special Notes",
     "description": "1. The user is responsible for obtaining appropriate software licenses and downloads prior to template deployment.<br>2. IBM Knowledge Center for IBM MQ 8.0 - <a href=\"https://www.ibm.com/support/knowledgecenter/SSFKSJ_8.0.0/com.ibm.mq.helphome.v80.doc/WelcomePagev8r0.htm\" target=\"_blank\">https://www.ibm.com/support/knowledgecenter/SSFKSJ_8.0.0/com.ibm.mq.helphome.v80.doc/WelcomePagev8r0.htm</a><br>3. IBM Support Portal - <a href=\"https://www.ibm.com/support/home/\" target=\"_blank\">https://www.ibm.com/support/home/</a><br>"}
