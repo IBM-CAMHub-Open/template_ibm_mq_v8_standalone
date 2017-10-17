@@ -3,7 +3,7 @@ Template Version - 1.0
 
 ## Description
 
-Install and configure IBM MQ on a single Linux Node.<br>
+Install and configure IBM MQ on a single Linux virtual machine.<br>
 
 ## Features
 
@@ -19,25 +19,25 @@ Install and configure IBM MQ on a single Linux Node.<br>
 
 Red Hat Enterprise Linux 7<br>
 Red Hat Enterprise Linux 6<br>
-Ubuntu 14.04<br>
+Ubuntu 14.04 LTS<br>
 <br>
 ### Topology
 
 1 virtual machine:<br>
- IBM MQ Instance instance<br>
+ IBM MQ instance<br>
 <br>
 ### Software Deployed
 
-IBM MQ Series V8.0<br>
+IBM MQ V8.0<br>
 <br>
 ### Default Virtual Machine Settings
 
- vCPU 1, Memory (GB) 2<br>
+ vCPU 2, Memory (GB) 4<br>
 <br>
 ### Usage and Special Notes
 
 1. The user is responsible for obtaining appropriate software licenses and downloads prior to template deployment.<br>
-2. IBM Knowledge Center for IBM MQ 8.0 - <a href=\"https://www.ibm.com/support/knowledgecenter/SSFKSJ_8.0.0/com.ibm.mq.helphome.v80.doc/WelcomePagev8r0.htm\" target=\"_blank\">https://www.ibm.com/support/knowledgecenter/SSFKSJ_8.0.0/com.ibm.mq.helphome.v80.doc/WelcomePagev8r0.htm</a><br>
+2. IBM Knowledge Center for IBM MQ V8.0 - <a href=\"https://www.ibm.com/support/knowledgecenter/SSFKSJ_8.0.0/com.ibm.mq.helphome.v80.doc/WelcomePagev8r0.htm\" target=\"_blank\">https://www.ibm.com/support/knowledgecenter/SSFKSJ_8.0.0/com.ibm.mq.helphome.v80.doc/WelcomePagev8r0.htm</a><br>
 3. IBM Support Portal - <a href=\"https://www.ibm.com/support/home/\" target=\"_blank\">https://www.ibm.com/support/home/</a><br>
 <br>
 
