@@ -1,15 +1,24 @@
 # =================================================================
-# Licensed Materials - Property of IBM
-# 5737-E67
-# @ Copyright IBM Corporation 2016, 2017 All Rights Reserved
-# US Government Users Restricted Rights - Use, duplication or disclosure
-# restricted by GSA ADP Schedule Contract with IBM Corp.
+# Copyright 2017 IBM Corporation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+#	you may not use this file except in compliance with the License.
+#	You may obtain a copy of the License at
+#
+#	  http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+#	WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 # =================================================================
 
 # This is a terraform generated template generated from ibm_mq_v8_standalone
 
 ##############################################################
-# Keys - CAMC (public/private) & optional User Key (public) 
+# Keys - CAMC (public/private) & optional User Key (public)
 ##############################################################
 variable "ibm_pm_public_ssh_key_name" {
   description = "Public CAMC SSH key name used to connect to the virtual guest."
@@ -22,10 +31,15 @@ variable "ibm_pm_private_ssh_key" {
 variable "user_public_ssh_key" {
   type = "string"
   description = "User defined public SSH key used to connect to the virtual machine. The format must be in openSSH."
+  default = "None"
+}
+
+variable "ibm_stack_id" {
+  description = "A unique stack id."
 }
 
 ##############################################################
-# Define the ibm provider 
+# Define the ibm provider
 ##############################################################
 #define the ibm provider
 provider "ibm" {
@@ -36,24 +50,16 @@ provider "camc" {
   version = "~> 0.1"
 }
 
-provider "random" {
-  version = "~> 1.0"
-}
-
 ##############################################################
-# Reference public key in Devices>Manage>SSH Keys in SL console) 
+# Reference public key in Devices>Manage>SSH Keys in SL console)
 ##############################################################
 data "ibm_compute_ssh_key" "ibm_pm_public_key" {
   label = "${var.ibm_pm_public_ssh_key_name}"
   most_recent = "true"
 }
 
-resource "random_id" "stack_id" {
-  byte_length = "16"
-}
-
 ##############################################################
-# Define pattern variables 
+# Define pattern variables
 ##############################################################
 ##### unique stack name #####
 variable "ibm_stack_name" {
@@ -90,6 +96,7 @@ variable "ibm_sw_repo_password" {
 variable "ibm_sw_repo_user" {
   type = "string"
   description = "IBM Software Repo Username"
+  default = "repouser"
 }
 
 
@@ -98,6 +105,7 @@ variable "ibm_sw_repo_user" {
 variable "MQNode01-image" {
   type = "string"
   description = "Operating system image id / template that should be used when creating the virtual image"
+  default = "REDHAT_7_64"
 }
 
 #Variable : MQNode01-name
@@ -116,156 +124,182 @@ variable "MQNode01-os_admin_user" {
 variable "MQNode01_wmq_advanced" {
   type = "string"
   description = "Install IBM MQ Advanced components: File Transfer, IBM MQ Telemetry, and Advanced Message Security."
+  default = "false"
 }
 
 #Variable : MQNode01_wmq_fixpack
 variable "MQNode01_wmq_fixpack" {
   type = "string"
   description = "The fixpack of IBM MQ to install."
+  default = "8"
 }
 
 #Variable : MQNode01_wmq_net_core_rmem_default
 variable "MQNode01_wmq_net_core_rmem_default" {
   type = "string"
   description = "WebSphere MQ Server Kernel Configuration net_core_rmem_default"
+  default = "10240"
 }
 
 #Variable : MQNode01_wmq_net_core_rmem_max
 variable "MQNode01_wmq_net_core_rmem_max" {
   type = "string"
   description = "WebSphere MQ Server Kernel Configuration net_core_rmem_max"
+  default = "4194304"
 }
 
 #Variable : MQNode01_wmq_net_core_wmem_default
 variable "MQNode01_wmq_net_core_wmem_default" {
   type = "string"
   description = "WebSphere MQ Server Kernel Configuration net_core_wmem_default"
+  default = "262144"
 }
 
 #Variable : MQNode01_wmq_net_ipv4_tcp_fin_timeout
 variable "MQNode01_wmq_net_ipv4_tcp_fin_timeout" {
   type = "string"
   description = "WebSphere MQ Server Kernel Configuration net_ipv4_tcp_fin_timeout"
+  default = "60"
 }
 
 #Variable : MQNode01_wmq_net_ipv4_tcp_keepalive_intvl
 variable "MQNode01_wmq_net_ipv4_tcp_keepalive_intvl" {
   type = "string"
   description = "WebSphere MQ Server Kernel Configuration net_ipv4_tcp_keepalive_intvl"
+  default = "75"
 }
 
 #Variable : MQNode01_wmq_net_ipv4_tcp_keepalive_time
 variable "MQNode01_wmq_net_ipv4_tcp_keepalive_time" {
   type = "string"
   description = "WebSphere MQ Server Kernel Configuration net_ipv4_tcp_keepalive_time"
+  default = "7200"
 }
 
 #Variable : MQNode01_wmq_net_ipv4_tcp_rmem
 variable "MQNode01_wmq_net_ipv4_tcp_rmem" {
   type = "string"
   description = "WebSphere MQ Server Kernel Configuration net_ipv4_tcp_rmem"
+  default = "4096    87380   4194304"
 }
 
 #Variable : MQNode01_wmq_net_ipv4_tcp_sack
 variable "MQNode01_wmq_net_ipv4_tcp_sack" {
   type = "string"
   description = "WebSphere MQ Server Kernel Configuration net_ipv4_tcp_sack"
+  default = "1"
 }
 
 #Variable : MQNode01_wmq_net_ipv4_tcp_timestamps
 variable "MQNode01_wmq_net_ipv4_tcp_timestamps" {
   type = "string"
   description = "WebSphere MQ Server Kernel Configuration net_ipv4_tcp_timestamps"
+  default = "1"
 }
 
 #Variable : MQNode01_wmq_net_ipv4_tcp_window_scaling
 variable "MQNode01_wmq_net_ipv4_tcp_window_scaling" {
   type = "string"
   description = "WebSphere MQ Server Kernel Configuration net_ipv4_tcp_window_scaling"
+  default = "1"
 }
 
 #Variable : MQNode01_wmq_net_ipv4_tcp_wmem
 variable "MQNode01_wmq_net_ipv4_tcp_wmem" {
   type = "string"
   description = "WebSphere MQ Server Kernel Configuration net_ipv4_tcp_wmem"
+  default = "4096    87380   4194304"
 }
 
 #Variable : MQNode01_wmq_perms
 variable "MQNode01_wmq_perms" {
   type = "string"
   description = "Default permissions for IBM MQ files on Unix"
+  default = "755"
 }
 
 #Variable : MQNode01_wmq_qmgr_qmgr1_description
 variable "MQNode01_wmq_qmgr_qmgr1_description" {
   type = "string"
   description = "Description of the Queue Manager"
+  default = "Default Queue Manager"
 }
 
 #Variable : MQNode01_wmq_qmgr_qmgr1_dlq
 variable "MQNode01_wmq_qmgr_qmgr1_dlq" {
   type = "string"
   description = "Queue Manager dead letter queue"
+  default = "SYSTEM.DEAD.LETTER.QUEUE"
 }
 
 #Variable : MQNode01_wmq_qmgr_qmgr1_listener_port
 variable "MQNode01_wmq_qmgr_qmgr1_listener_port" {
   type = "string"
   description = "Port the Queue Manager listens on."
+  default = "1414"
 }
 
 #Variable : MQNode01_wmq_qmgr_qmgr1_loggingtype
 variable "MQNode01_wmq_qmgr_qmgr1_loggingtype" {
   type = "string"
   description = "Type of logging to use ll(Linear), lc(Circular)"
+  default = "lc"
 }
 
 #Variable : MQNode01_wmq_qmgr_qmgr1_logsize
 variable "MQNode01_wmq_qmgr_qmgr1_logsize" {
   type = "string"
   description = "Size of the IBM MQ Logs"
+  default = "16384"
 }
 
 #Variable : MQNode01_wmq_qmgr_qmgr1_name
 variable "MQNode01_wmq_qmgr_qmgr1_name" {
   type = "string"
   description = "Name of the Queue Manager to Create"
+  default = "QMGR1"
 }
 
 #Variable : MQNode01_wmq_qmgr_qmgr1_primarylogs
 variable "MQNode01_wmq_qmgr_qmgr1_primarylogs" {
   type = "string"
   description = "Number of primary logs to create."
+  default = "10"
 }
 
 #Variable : MQNode01_wmq_qmgr_qmgr1_secondarylogs
 variable "MQNode01_wmq_qmgr_qmgr1_secondarylogs" {
   type = "string"
   description = "Number of Secondary Logs"
+  default = "20"
 }
 
 #Variable : MQNode01_wmq_service_name
 variable "MQNode01_wmq_service_name" {
   type = "string"
   description = "WebSphere MQ service name"
+  default = "mq"
 }
 
 #Variable : MQNode01_wmq_swap_file
 variable "MQNode01_wmq_swap_file" {
   type = "string"
   description = "Swap file name"
+  default = "/swapfile"
 }
 
 #Variable : MQNode01_wmq_swap_file_size
 variable "MQNode01_wmq_swap_file_size" {
   type = "string"
   description = "UNIX Swap size in megabytes"
+  default = "512"
 }
 
 #Variable : MQNode01_wmq_version
 variable "MQNode01_wmq_version" {
   type = "string"
   description = "The Version of IBM MQ to install, eg, 8.0"
+  default = "8.0"
 }
 
 
@@ -274,6 +308,7 @@ variable "MQNode01_wmq_version" {
 variable "MQNode01-mgmt-network-public" {
   type = "string"
   description = "Expose and use public IP of virtual machine for internal communication"
+  default = "true"
 }
 
 
@@ -281,6 +316,7 @@ variable "MQNode01-mgmt-network-public" {
 ##### domain name #####
 variable "runtime_domain" {
   description = "domain name"
+  default = "cam.ibm.com"
 }
 
 
@@ -293,6 +329,7 @@ variable "runtime_domain" {
 variable "MQNode01_datacenter" {
   type = "string"
   description = "IBMCloud datacenter where infrastructure resources will be deployed"
+  default = "dal05"
 }
 
 
@@ -300,6 +337,7 @@ variable "MQNode01_datacenter" {
 variable "MQNode01_private_network_only" {
   type = "string"
   description = "Provision the virtual machine with only private IP"
+  default = "false"
 }
 
 
@@ -307,6 +345,7 @@ variable "MQNode01_private_network_only" {
 variable "MQNode01_number_of_cores" {
   type = "string"
   description = "Number of CPU cores, which is required to be a positive Integer"
+  default = "2"
 }
 
 
@@ -314,6 +353,7 @@ variable "MQNode01_number_of_cores" {
 variable "MQNode01_memory" {
   type = "string"
   description = "Amount of Memory (MBs), which is required to be one or more times of 1024"
+  default = "4096"
 }
 
 
@@ -321,6 +361,7 @@ variable "MQNode01_memory" {
 variable "MQNode01_network_speed" {
   type = "string"
   description = "Bandwidth of network communication applied to the virtual machine"
+  default = "1000"
 }
 
 
@@ -328,6 +369,7 @@ variable "MQNode01_network_speed" {
 variable "MQNode01_hourly_billing" {
   type = "string"
   description = "Billing cycle: hourly billed or monthly billed"
+  default = "true"
 }
 
 
@@ -335,6 +377,7 @@ variable "MQNode01_hourly_billing" {
 variable "MQNode01_dedicated_acct_host_only" {
   type = "string"
   description = "Shared or dedicated host, where dedicated host usually means higher performance and cost"
+  default = "false"
 }
 
 
@@ -342,11 +385,13 @@ variable "MQNode01_dedicated_acct_host_only" {
 variable "MQNode01_local_disk" {
   type = "string"
   description = "User local disk or SAN disk"
+  default = "false"
 }
 
 variable "MQNode01_root_disk_size" {
   type = "string"
   description = "Root Disk Size - MQNode01"
+  default = "100"
 }
 
 resource "ibm_compute_vm_instance" "MQNode01" {
@@ -373,11 +418,20 @@ resource "ibm_compute_vm_instance" "MQNode01" {
     destination = "MQNode01_add_ssh_key.sh"
     content     = <<EOF
 # =================================================================
-# Licensed Materials - Property of IBM
-# 5737-E67
-# @ Copyright IBM Corporation 2016, 2017 All Rights Reserved
-# US Government Users Restricted Rights - Use, duplication or disclosure
-# restricted by GSA ADP Schedule Contract with IBM Corp.
+# Copyright 2017 IBM Corporation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+#	you may not use this file except in compliance with the License.
+#	You may obtain a copy of the License at
+#
+#	  http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+#	WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 # =================================================================
 #!/bin/bash
 
@@ -438,17 +492,17 @@ resource "camc_bootstrap" "MQNode01_chef_bootstrap_comp" {
   data = <<EOT
 {
   "os_admin_user": "${var.MQNode01-os_admin_user}",
-  "stack_id": "${random_id.stack_id.hex}",
+  "stack_id": "${var.ibm_stack_id}",
   "environment_name": "_default",
   "host_ip": "${var.MQNode01-mgmt-network-public == "false" ? ibm_compute_vm_instance.MQNode01.ipv4_address_private : ibm_compute_vm_instance.MQNode01.ipv4_address}",
   "node_name": "${var.MQNode01-name}",
   "node_attributes": {
     "ibm_internal": {
-      "stack_id": "${random_id.stack_id.hex}",
+      "stack_id": "${var.ibm_stack_id}",
       "stack_name": "${var.ibm_stack_name}",
       "vault": {
         "item": "secrets",
-        "name": "${random_id.stack_id.hex}"
+        "name": "${var.ibm_stack_id}"
       }
     }
   }
@@ -471,7 +525,7 @@ resource "camc_softwaredeploy" "MQNode01_wmq_create_qmgrs" {
   data = <<EOT
 {
   "os_admin_user": "${var.MQNode01-os_admin_user}",
-  "stack_id": "${random_id.stack_id.hex}",
+  "stack_id": "${var.ibm_stack_id}",
   "environment_name": "_default",
   "host_ip": "${var.MQNode01-mgmt-network-public == "false" ? ibm_compute_vm_instance.MQNode01.ipv4_address_private : ibm_compute_vm_instance.MQNode01.ipv4_address}",
   "node_name": "${var.MQNode01-name}",
@@ -506,7 +560,7 @@ resource "camc_softwaredeploy" "MQNode01_wmq_create_qmgrs" {
         "sw_repo_password": "${var.ibm_sw_repo_password}"
       }
     },
-    "vault": "${random_id.stack_id.hex}"
+    "vault": "${var.ibm_stack_id}"
   }
 }
 EOT
@@ -527,7 +581,7 @@ resource "camc_softwaredeploy" "MQNode01_wmq_v8_install" {
   data = <<EOT
 {
   "os_admin_user": "${var.MQNode01-os_admin_user}",
-  "stack_id": "${random_id.stack_id.hex}",
+  "stack_id": "${var.ibm_stack_id}",
   "environment_name": "_default",
   "host_ip": "${var.MQNode01-mgmt-network-public == "false" ? ibm_compute_vm_instance.MQNode01.ipv4_address_private : ibm_compute_vm_instance.MQNode01.ipv4_address}",
   "node_name": "${var.MQNode01-name}",
@@ -570,7 +624,7 @@ resource "camc_softwaredeploy" "MQNode01_wmq_v8_install" {
         "sw_repo_password": "${var.ibm_sw_repo_password}"
       }
     },
-    "vault": "${random_id.stack_id.hex}"
+    "vault": "${var.ibm_stack_id}"
   }
 }
 EOT
@@ -591,7 +645,7 @@ resource "camc_vaultitem" "VaultItem" {
   "vault_content": {
     "item": "secrets",
     "values": {},
-    "vault": "${random_id.stack_id.hex}"
+    "vault": "${var.ibm_stack_id}"
   }
 }
 EOT
@@ -610,6 +664,5 @@ output "MQNode01_roles" {
 }
 
 output "stack_id" {
-  value = "${random_id.stack_id.hex}"
+  value = "${var.ibm_stack_id}"
 }
-
