@@ -23,7 +23,6 @@
       }
     },
     "metadata": {
-      "displayName": "IBM MQ V8 on a single virtual machine",
       "providerDisplayName": "Amazon EC2",
       "longDescription": "Install and configure IBM MQ on a single Linux virtual machine.",
       "bullets": [{
